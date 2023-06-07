@@ -34,9 +34,9 @@ jobs:
     - name: Upload Files
       uses: siva1024/scp-deployer@latest
       with:
-        host: 203.190.146.204
-        username: vinod
-        password: pp
-        port: 112
+        host: 
+        username: 
+        password: 
+        port: 
         source: "./build/*"
         target: "/var/www/html/vijay-test"
