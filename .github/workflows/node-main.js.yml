@@ -27,9 +27,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: ''
-    - run: npm install yarn
-    - run: yarn install -g @angular/cli
-    - run: yarn install 
+    - run: npm install 
+    - run: npm install @angular/cli
     - run: sudo apt-get install sshpass
     - run: ng build --prod
 
