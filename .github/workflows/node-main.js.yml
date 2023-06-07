@@ -29,8 +29,9 @@ jobs:
     - run: npm install yarn
     - run: yarn install
     - run: npm run build --if-present
+
     - name: Upload Files
-    - uses: upload filest
+      uses: siva1024/scp-deployer@latest
       with:
         host: 203.190.146.204
         username: vinod
