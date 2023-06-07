@@ -33,9 +33,9 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: 192.168.1.5
-        username: laitkor
-        password: m2n1shlko
-        port: 22
+        host: 203.190.146.204
+        username: vinod
+        password: pp
+        port: 112
         source: "./dist"
         target: /var/www/html/vijay
