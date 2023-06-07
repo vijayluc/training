@@ -29,6 +29,7 @@ jobs:
         cache: ''
     - run: npm install yarn
     - run: yarn install
+    - run: install -g @angular/cli
     - run: sudo apt-get install sshpass
     - run: ng build --prod
 
