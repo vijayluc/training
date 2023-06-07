@@ -1,47 +1,34 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { ProfileService } from './services/profile.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, ErrorHandler } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import {
-  StoreRouterConnectingModule,
-  RouterStateSerializer, DefaultRouterStateSerializer
-} from '@ngrx/router-store';
-
-import { CoreModule } from './core';
-import { SharedModule } from '@shared/index';
-
-import { APP_CORE_MODULES } from './core/components';
-import { APP_CONTAINER_MODULES } from './containers';
-import { ROUTES } from './app.routes';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { AppErrorHandler } from './core/services/error-handler';
+import { InfiniteScrollDirective } from './directives/infinite-scroll.directive';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { HireFormComponent } from './hire-form/hire-form.component';
+import { ProfileComponent } from './profile-view/profile/profile.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    InfiniteScrollDirective,
+    ProfileViewComponent,
+    ProfileComponent,
+    HireFormComponent,
+    ScrollToTopComponent
+  ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    HttpClientJsonpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true }),
-    BrowserAnimationsModule,
-
-    CoreModule,
-    SharedModule,
-    ...APP_CORE_MODULES,
-    ...APP_CONTAINER_MODULES,
-
-    StoreRouterConnectingModule.forRoot({ serializer: DefaultRouterStateSerializer }),
-    ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
-    })
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

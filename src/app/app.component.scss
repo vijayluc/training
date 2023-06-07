@@ -1,26 +1,15 @@
-@import '~src/css/echoes-variables';
+.toolbar {
+    height: 50px;
+    margin-bottom: 20px;
 
-:host {
-  // DEFAULT THEME - 'arctic'
-
-  background-color: var(--app-bg-color);
-  display: block;
-  height: 100%;
-
-  .container-main {
-    height: 100vh;
-    display: block;
-    transition: margin 0.3s ease-out;
-    margin-left: 0;
-  }
+    &__title {
+        text-align: center;
+        font-size: 32px;
+        cursor: pointer;
+        outline: none;
+    }
 }
-@media (min-width: 768px) {
-  :host .closed + .container-main {
-    margin-left: var(--sidebar-closed-width);
-  }
-}
-@media (min-width: 1024px) {
-  :host .container-main {
-    margin-left: var(--drawer-width);
-  }
+
+.page-content {
+    background-color: #f6f6f6;
 }
